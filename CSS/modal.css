@@ -1,0 +1,116 @@
+/* Базовые стили слоя, затемнения и модального окна */
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+   
+/* активируем слой затемнения */
+.overlay:target {
+  display: block;
+}
+
+/* стили модального окна */
+.popup {
+  position: fixed;
+  left: 50%;
+  z-index: 20;
+  padding-right: 48px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 900px;
+  background: #fefefe;
+  -webkit-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+  -ms-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+  box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+}
+
+.modal__pic {
+  object-fit: contain;
+  max-width: 60%;
+  height: auto;
+  max-height: 500px;
+  margin-right: 48px;
+}
+
+.modal__pic__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #333;
+}
+
+.modal__pic__header {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.modal__pic__name {
+  font-size: 16px;
+  margin: 0;
+}
+
+.modal__pic__date {
+  display: inline-block;
+  margin-bottom: 7%;
+  font-size: 12px;
+  color: #969696;
+}
+
+.modal__pic__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 90%;
+  line-height: 2;
+}
+  
+/* активируем модальный блок */
+.overlay:target+.popup {
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  top: 20%;
+  max-height: 650px;
+}
+  
+/* кнопка закрытия */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 10px;
+  content: '';
+  height: 21px;
+  width: 2px;
+  background-color: #333;
+  }
+  
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.modal__content {
+  color: black;
+}
